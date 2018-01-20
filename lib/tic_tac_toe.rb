@@ -61,7 +61,7 @@ display_board
 else
 	turn
 end
-end
+
 
 def won?
   WIN_COMBINATIONS.find do |win_combo|
@@ -89,13 +89,12 @@ if combo
 end
 
 def play
-  while !over?
-    turn(board)
+  until over?
+    turn
   end
-  if draw?
-       puts "Cat's Game!"
-  else won?
-     puts "Congratulations #{winner}!"
-   end
-end
+  if won?
+    puts "Congratulations #{winner}!"
+  elsif draw?
+    puts "Cats Game!"
+  end
 end
