@@ -36,12 +36,11 @@ end
 
 def valid_move?(position)
 	position.between?(0, 8) && !position_taken?(position)
-
 end
 
 def turn_count
 	@board.count{ |item| item == "X" || item == "O"}
-	end
+end
 
 def current_player
 if turn_count.even?
@@ -61,7 +60,7 @@ display_board
 else
 	turn
 end
-
+end
 
 def won?
   WIN_COMBINATIONS.find do |win_combo|
